@@ -47,6 +47,7 @@ const selectItem = (event, img) => {
     alert('Hey, Already added !')
   }
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -77,10 +78,17 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
   })
   changeSlide(0)
-  timer = setInterval(function () {
-    slideIndex++;
-    changeSlide(slideIndex);
-  }, duration);
+  if(duration > 0){
+    timer = setInterval(function () {
+      slideIndex++;
+      changeSlide(slideIndex);
+    }, duration);
+  }else{
+    alert('Time should be positive');
+    return;
+  }
+  
+  
 }
 
 // change slider index 
